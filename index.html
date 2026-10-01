@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>onWorks</title>
+<meta name="description" content="onWorks — A Publisher of Meaningful Apps. 모아뷰(MoaView)를 만든 곳입니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
+<style>
+  :root{
+    --ground:#FAF8F2;
+    --surface:#FFFFFF;
+    --ink:#15181E;
+    --ink-2:#525863;
+    --ink-3:#868C98;
+    --rule:#E4E1D7;
+    --rule-soft:#EFEDE5;
+    --navy:#0F2D6B;
+    --accent:#2563EB;
+    --accent-soft:#ECF0FB;
+    --teal:#00C2BB;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ground:#14161B;
+      --surface:#1B1E25;
+      --ink:#E9EBF1;
+      --ink-2:#A5ABB8;
+      --ink-3:#7A808D;
+      --rule:#2C303A;
+      --rule-soft:#24272F;
+      --navy:#E9EBF1;
+      --accent:#8CA9F2;
+      --accent-soft:#1C2436;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#14161B;
+    --surface:#1B1E25;
+    --ink:#E9EBF1;
+    --ink-2:#A5ABB8;
+    --ink-3:#7A808D;
+    --rule:#2C303A;
+    --rule-soft:#24272F;
+    --navy:#E9EBF1;
+    --accent:#8CA9F2;
+    --accent-soft:#1C2436;
+  }
+
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--ground);
+    color:var(--ink);
+    font-family:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+    font-size:16px;
+    line-height:1.7;
+    word-break:keep-all;
+    overflow-wrap:anywhere;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:720px;margin:0 auto;padding-inline:22px;padding-block:56px 72px}
+  a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+  .mono{
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);
+  }
+
+  /* ---------- brand ---------- */
+  .brand{display:flex;align-items:center;gap:12px;margin-bottom:64px}
+  .brand svg{width:52px;height:auto;flex:none;display:block}
+  .brand-name{font-size:24px;font-weight:700;letter-spacing:-.02em;color:var(--navy);line-height:1}
+
+  /* ---------- hero ---------- */
+  .hero{margin-bottom:64px}
+  .hero h1{
+    font-size:clamp(27px,5.4vw,40px);line-height:1.3;font-weight:700;
+    letter-spacing:-.025em;margin:0 0 12px;text-wrap:balance;
+  }
+  .hero .en{margin:0 0 4px;font-size:17px;font-weight:500;color:var(--ink-2)}
+
+  /* ---------- apps ---------- */
+  h2{margin:0 0 14px}
+  .app{
+    display:flex;gap:18px;align-items:flex-start;
+    background:var(--surface);border:1px solid var(--rule);border-radius:8px;
+    padding:22px;
+  }
+  .app-icon{width:64px;height:64px;border-radius:23%;overflow:hidden;flex:none;box-shadow:0 2px 8px -2px rgba(16,20,32,.3)}
+  .app-icon svg{width:100%;height:100%;display:block}
+  .app-body{min-width:0}
+  .app-title{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin-bottom:2px}
+  .app-title h3{margin:0;font-size:19px;font-weight:700;letter-spacing:-.01em}
+  .chip{
+    font-size:12px;font-weight:500;color:var(--accent);background:var(--accent-soft);
+    padding:2px 9px;border-radius:999px;white-space:nowrap;
+  }
+  .app-tag{margin:0 0 10px;font-size:15px;font-weight:500;color:var(--ink)}
+  .app-desc{margin:0 0 14px;font-size:14.5px;color:var(--ink-2)}
+  .links{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;margin:0;padding:0;list-style:none}
+
+  /* ---------- contact / foot ---------- */
+  .contact{margin-top:56px;padding-top:22px;border-top:1px solid var(--rule)}
+  .contact p{margin:0;font-size:15px;color:var(--ink-2)}
+  .contact p.mono{font-size:11.5px;color:var(--ink-3);margin-bottom:6px}
+  .foot{margin-top:40px;font-size:13px;color:var(--ink-3)}
+  .foot p{margin:0 0 4px}
+
+  @media (max-width:480px){
+    .app{flex-direction:column;gap:14px}
+  }
+</style>
+
+<div class="wrap">
+  <header class="brand">
+    <!-- onWorks 심볼 (근사치). 원본 벡터가 있으면 이 <svg>를 교체 -->
+    <svg viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="onWorks 로고">
+      <defs>
+        <linearGradient id="ow" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#00C2BB"/>
+          <stop offset="1" stop-color="#2563EB"/>
+        </linearGradient>
+      </defs>
+      <circle cx="28" cy="34" r="16" fill="none" stroke="url(#ow)" stroke-width="11"/>
+      <path d="M44 56 V30 A17 17 0 0 1 78 30 V56" fill="none" stroke="url(#ow)" stroke-width="11"/>
+    </svg>
+    <span class="brand-name">onWorks</span>
+  </header>
+
+  <section class="hero">
+    <p class="mono">A Publisher of Meaningful Apps</p>
+    <h1>만든 것들이 더 나은 내일을 만듭니다</h1>
+    <p class="en">Works for a Better Tomorrow</p>
+  </section>
+
+  <section>
+    <h2 class="mono">Apps</h2>
+
+    <article class="app">
+      <div class="app-icon">
+        <svg viewBox="18 18 72 72" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="모아뷰 아이콘"><rect width="108" height="108" fill="#FEFAED"/><path d="M39.18,28.59 L61.78,22.54 A8.20,8.20 0 0 1 71.82,28.33 L74.62,38.77 A8.20,8.20 0 0 1 68.82,48.81 L46.22,54.86 A8.20,8.20 0 0 1 36.18,49.07 L33.38,38.63 A8.20,8.20 0 0 1 39.18,28.59 Z" fill="#FEFAED"/><path d="M39.90,31.30 L62.51,25.24 A5.40,5.40 0 0 1 69.12,29.06 L71.91,39.49 A5.40,5.40 0 0 1 68.10,46.10 L45.49,52.16 A5.40,5.40 0 0 1 38.88,48.34 L36.09,37.91 A5.40,5.40 0 0 1 39.90,31.30 Z" fill="#2563EB"/><path d="M83.41,53.87 L77.36,76.47 A8.20,8.20 0 0 1 67.32,82.27 L56.88,79.47 A8.20,8.20 0 0 1 51.09,69.43 L57.14,46.83 A8.20,8.20 0 0 1 67.18,41.03 L77.62,43.83 A8.20,8.20 0 0 1 83.41,53.87 Z" fill="#FEFAED"/><path d="M80.71,53.14 L74.65,75.75 A5.40,5.40 0 0 1 68.04,79.56 L57.61,76.77 A5.40,5.40 0 0 1 53.79,70.16 L59.85,47.55 A5.40,5.40 0 0 1 66.46,43.74 L76.89,46.53 A5.40,5.40 0 0 1 80.71,53.14 Z" fill="#2563EB"/><path d="M39.41,79.54 L22.86,62.99 A8.20,8.20 0 0 1 22.86,51.40 L30.50,43.76 A8.20,8.20 0 0 1 42.09,43.76 L58.64,60.31 A8.20,8.20 0 0 1 58.64,71.90 L51.00,79.54 A8.20,8.20 0 0 1 39.41,79.54 Z" fill="#FEFAED"/><path d="M41.39,77.56 L24.84,61.01 A5.40,5.40 0 0 1 24.84,53.38 L32.48,45.74 A5.40,5.40 0 0 1 40.11,45.74 L56.66,62.29 A5.40,5.40 0 0 1 56.66,69.92 L49.02,77.56 A5.40,5.40 0 0 1 41.39,77.56 Z" fill="#2563EB"/><path d="M47.52,48.96 L47.52,59.04 Q47.52,61.74 49.99,60.65 L62.51,55.09 Q64.98,54.00 62.51,52.91 L49.99,47.35 Q47.52,46.26 47.52,48.96 Z" fill="#FEFAED" stroke="#FEFAED" stroke-width="3.9" stroke-linejoin="round"/><path d="M47.52,48.96 L47.52,59.04 Q47.52,61.74 49.99,60.65 L62.51,55.09 Q64.98,54.00 62.51,52.91 L49.99,47.35 Q47.52,46.26 47.52,48.96 Z" fill="#FFC629"/></svg>
+      </div>
+      <div class="app-body">
+        <div class="app-title">
+          <h3>모아뷰</h3>
+          <span class="chip">출시 준비 중</span>
+        </div>
+        <p class="app-tag">지금은 모아두고, 나중에 한 번에</p>
+        <p class="app-desc">
+          다른 앱을 쓰다가 나중에 보고 싶은 링크·사진·메모·파일을 공유 버튼 한 번으로 던져두는 임시함입니다.
+          저장한 내용은 기기 안에만 보관됩니다.
+        </p>
+        <ul class="links">
+          <!-- 프로덕션 출시 후 주석 해제하고 위 chip 문구를 바꿀 것
+          <li><a href="https://play.google.com/store/apps/details?id=com.onworks.moaview">Google Play</a></li>
+          -->
+          <li><a href="https://onworks-apps.github.io/moaview-privacy/">개인정보처리방침</a></li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <section class="contact">
+    <p class="mono">Contact</p>
+    <p><a href="mailto:onworks.apps@gmail.com">onworks.apps@gmail.com</a></p>
+  </section>
+
+  <footer class="foot">
+    <p>© 2026 onWorks · 개발자 ONWORKS</p>
+  </footer>
+</div>
+</html>

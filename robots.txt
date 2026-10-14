@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://onworks-apps.github.io/sitemap.xml
